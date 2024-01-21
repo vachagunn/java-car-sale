@@ -1,64 +1,34 @@
 package com.example.CarSale.services;
 
 import com.example.CarSale.entities.Product;
+import com.example.CarSale.repositories.ProductRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Slf4j
+@RequiredArgsConstructor
 public class ProductService {
-    private List<Product> products = new ArrayList<>();
-    private long ID = 0;
-
-    {
-        products.add(new Product(
-                ++ID,
-                "Mercedes-Benz GL 350",
-                2014,
-                250.000F,
-                "Дизель",
-                3.0F,
-                249,
-                "Отличное состояние",
-                2500000F,
-                "Екатеринбург",
-                "Шахназарян Вачик"
-        ));
-
-        products.add(new Product(
-                ++ID,
-                "Kia Rio",
-                2021,
-                30.000F,
-                "Бензин",
-                1.6F,
-                123,
-                "Одним словом - бархат",
-                2000000F,
-                "Екатеринбург",
-                "Шахназарян Вачик"
-        ));
-    }
-
-    public List<Product> listProducts() {
-        return products;
+    private final ProductRepository productRepository;
+    public List<Product> listProducts(String title) {
+        if (title != null) return productRepository.findByTitle(title);
+        return productRepository.findAll();
     }
 
     public void saveProduct(Product product) {
-        product.setId(++ID);
-        products.add(product);
+        log.info("Saving new {}", product);
+        productRepository.save(product);
     }
 
     public void deleteProduct(Long id) {
-        products.removeIf(product -> product.getId() == id);
+        productRepository.deleteById(id);
     }
 
     public Product getProductById(Long id) {
-        for (Product product : products) {
-            if (product.getId() == id) return product;
-        }
-
-        return null;
+        return productRepository.findById(id).orElse(null);
     }
 }

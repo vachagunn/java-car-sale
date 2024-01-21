@@ -8,6 +8,12 @@
 
 <body>
 <h1>CARSALE</h1>
+
+<form action="/" method="get">
+    Поиск по названию: <input type="text" name="title"><br>
+    <input type="submit" value="Поиск" />
+</form>
+
 <#list products as product>
     <div>
         <p>${product.title} ${product.price} руб. <a href="/product/${product.id}">Подробнее</a></p>
