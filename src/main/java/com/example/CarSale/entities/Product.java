@@ -19,7 +19,7 @@ public class Product {
     private String title;
 
     @Column(name = "year")
-    private int year;
+    private String year;
 
     @Column(name = "mileage")
     private float mileage;
@@ -28,7 +28,7 @@ public class Product {
     private String engine;
 
     @Column(name = "capacity")
-    private float capacity;
+    private String capacity;
 
     @Column(name = "power")
     private int power;
@@ -37,7 +37,7 @@ public class Product {
     private String description;
 
     @Column(name = "price")
-    private float price;
+    private long price;
 
     @Column(name = "city")
     private String city;
