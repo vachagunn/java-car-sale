@@ -7,6 +7,9 @@
 <body>
 <h1>CARSALE</h1>
 <h3>Подробная информация</h3>
+<#list images as img>
+    <img src="/images/${img.id}" height="60px"/><br>
+</#list>
 <p>Марка и модель автомобиля: <b>${product.title}</b></p>
 <p>Текущий пробег: <b>${product.mileage} км</b></p>
 <p>Тип двигателя: <b>${product.engine}</b></p>

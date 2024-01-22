@@ -29,7 +29,7 @@
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h1 class="font-weight-light" style="margin-bottom: 20px;">Размещение объявления</h1>
-                <form action="/product/create" method="post">
+                <form action="/product/create" method="post" enctype="multipart/form-data">
                     <div style="display: flex; gap: 10px; flex-direction: column">
                         <div class="row">
                             <div class="col">
@@ -70,6 +70,17 @@
                             </div>
                             <div class="col">
                                 <input type="text" name="author" class="form-control" placeholder="Собственник">
+                            </div>
+                        </div>
+                        <div style="text-align: start">
+                            <div class="col">
+                                Первая фотография: <input type="file" name="file1" class="form-control">
+                            </div>
+                            <div class="col">
+                                Вторая фотография: <input type="file" name="file2" class="form-control">
+                            </div>
+                            <div class="col">
+                                Третья фотография: <input type="file" name="file3" class="form-control">
                             </div>
                         </div>
                         <input type="submit" class="form-control btn btn-primary" value="Создать объявление"/>
