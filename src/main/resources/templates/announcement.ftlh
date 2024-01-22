@@ -25,70 +25,66 @@
 </div>
 
 <main>
-    <section class="py-5 text-center container">
-        <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="font-weight-light" style="margin-bottom: 20px;">Размещение объявления</h1>
-                <form action="/product/create" method="post" enctype="multipart/form-data">
-                    <div style="display: flex; gap: 10px; flex-direction: column">
-                        <div class="row">
-                            <div class="col">
-                                <input type="text" name="title" class="form-control"
-                                       placeholder="Марка и модель">
-                            </div>
-                            <div class="col">
-                                <input type="number" name="year" class="form-control" placeholder="Год выпуска">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <input type="number" name="mileage" class="form-control" placeholder="Текущий пробег">
-                            </div>
-                            <div class="col">
-                                <input type="text" name="engine" class="form-control" placeholder="Тип двигателя">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <input type="text" name="capacity" class="form-control" placeholder="Объем двигателя">
-                            </div>
-                            <div class="col">
-                                <input type="number" name="power" class="form-control" placeholder="Мощность двигателя">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <input type="text" name="description" class="form-control" placeholder="Описание">
-                            </div>
-                            <div class="col">
-                                <input type="number" name="price" class="form-control" placeholder="Цена">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <input type="text" name="city" class="form-control" placeholder="Город">
-                            </div>
-                            <div class="col">
-                                <input type="text" name="author" class="form-control" placeholder="Собственник">
-                            </div>
-                        </div>
-                        <div style="text-align: start">
-                            <div class="col">
-                                Первая фотография: <input type="file" name="file1" class="form-control">
-                            </div>
-                            <div class="col">
-                                Вторая фотография: <input type="file" name="file2" class="form-control">
-                            </div>
-                            <div class="col">
-                                Третья фотография: <input type="file" name="file3" class="form-control">
-                            </div>
-                        </div>
-                        <input type="submit" class="form-control btn btn-primary" value="Создать объявление"/>
+    <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="font-weight-light" style="margin-bottom: 20px;">Размещение объявления</h1>
+        <form action="/product/create" method="post" enctype="multipart/form-data">
+            <div style="display: flex; gap: 10px; flex-direction: column">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" name="title" class="form-control"
+                               placeholder="Марка и модель">
                     </div>
-                </form>
+                    <div class="col">
+                        <input type="number" name="year" class="form-control" placeholder="Год выпуска">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="number" name="mileage" class="form-control" placeholder="Текущий пробег">
+                    </div>
+                    <div class="col">
+                        <input type="text" name="engine" class="form-control" placeholder="Тип двигателя">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" name="capacity" class="form-control" placeholder="Объем двигателя">
+                    </div>
+                    <div class="col">
+                        <input type="number" name="power" class="form-control" placeholder="Мощность двигателя">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" name="description" class="form-control" placeholder="Описание">
+                    </div>
+                    <div class="col">
+                        <input type="number" name="price" class="form-control" placeholder="Цена">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" name="city" class="form-control" placeholder="Город">
+                    </div>
+                    <div class="col">
+                        <input type="text" name="author" class="form-control" placeholder="Собственник">
+                    </div>
+                </div>
+<#--                <div style="text-align: start">-->
+<#--                    <div class="col">-->
+<#--                        Первая фотография: <input type="file" name="file1" class="form-control">-->
+<#--                    </div>-->
+<#--                    <div class="col">-->
+<#--                        Вторая фотография: <input type="file" name="file2" class="form-control">-->
+<#--                    </div>-->
+<#--                    <div class="col">-->
+<#--                        Третья фотография: <input type="file" name="file3" class="form-control">-->
+<#--                    </div>-->
+<#--                </div>-->
+                <input type="submit" class="form-control btn btn-primary" value="Создать объявление"/>
             </div>
-        </div>
-    </section>
+        </form>
+    </div>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
