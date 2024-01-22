@@ -5,6 +5,9 @@ import com.example.CarSale.entities.Product;
 import com.example.CarSale.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -64,6 +67,11 @@ public class ProductService {
         image.setBytes(file1.getBytes());
 
         return image;
+    }
+
+    public Page<Product> getProduct(int page, int pageSize) {
+        Pageable pageable = PageRequest.of(page - 1, pageSize);
+        return productRepository.findAll(pageable);
     }
 
     public void deleteProduct(Long id) {

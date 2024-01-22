@@ -6,7 +6,7 @@
     <title>CARSALE</title>
 </head>
 
-<body">
+<body>
 <div class="container">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
         <div class="col-md-3 mb-2 mb-md-0">
@@ -20,7 +20,7 @@
 
         <div class="col-md-3 text-end">
             <a href="/login-user" class="btn btn-outline-primary me-2">Войти</a>
-<#--            <button type="button" class="btn btn-primary">Sign-up</button>-->
+            <#--            <button type="button" class="btn btn-primary">Sign-up</button>-->
         </div>
     </header>
 </div>
@@ -35,7 +35,8 @@
     <div style="display: flex; justify-content: center; padding: 0 20px; width: 100%;">
         <form action="/" method="get">
             <div class="input-group mb-3" style="width: 500px;">
-                <input type="text" name="title" class="form-control" placeholder="Поиск автомобилей по названию" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <input type="text" name="title" class="form-control" placeholder="Поиск автомобилей по названию"
+                       aria-label="Recipient's username" aria-describedby="button-addon2">
                 <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Поиск</button>
             </div>
         </form>
@@ -47,7 +48,7 @@
                 <#list products as product>
                     <div style="display: flex;">
                         <div class="card" style="width: 18rem;">
-<#--                            <img src="..." class="card-img-top" alt="...">-->
+                            <#--                            <img src="..." class="card-img-top" alt="...">-->
                             <div class="card-body">
                                 <h5 class="card-title">${product.title} (${product.year} год)</h5>
                                 <p class="card-text">${product.price} руб.</p>
@@ -62,11 +63,22 @@
             </div>
             <nav aria-label="Page navigation example" style="display: flex; justify-content: center; margin-top: 20px">
                 <ul class="pagination">
-                    <li class="page-item disabled"><a class="page-link" href="#"><</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">></a></li>
+                    <li class="page-item<#if currentPage == 1> disabled"</#if>>
+                        <a class="page-link" style="user-select: none; cursor: pointer"
+                           href="/?page=${currentPage - 1}"><</a>
+                    </li>
+                    <li class="page-item<#if currentPage == 1> disabled"</#if>>
+                        <a class="page-link" href="/?page=1">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="/?page=2">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="/?page=3">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="/?page=${currentPage+ 1}">></a>
+                    </li>
                 </ul>
             </nav>
         </div>

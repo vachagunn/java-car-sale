@@ -4,6 +4,7 @@ import com.example.CarSale.entities.Product;
 import com.example.CarSale.repositories.ProductRepository;
 import com.example.CarSale.services.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -25,11 +26,17 @@ public class ProductController {
     @GetMapping("/")
     public String products(
             @RequestParam(name = "title", required = false) String title,
-            Model model,
-            Integer pageNumber
+            @RequestParam(defaultValue = "1") int page,
+            Model model
     ) {
-        if (pageNumber == null) pageNumber = 0;
-        model.addAttribute("products", productRepository.findAll(PageRequest.of(pageNumber, 6)));
+        int pageSize = 6;
+        Page<Product> productPage = productService.getProduct(page, pageSize);
+
+        model.addAttribute("products", productPage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", productPage.getTotalPages());
+//        if (pageNumber == null) pageNumber = 0;
+//        model.addAttribute("products", productRepository.findAll(PageRequest.of(pageNumber, 6)));
         model.addAttribute("products", productService.listProducts(title));
         return "products";
     }
