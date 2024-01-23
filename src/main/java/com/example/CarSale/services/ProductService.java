@@ -21,9 +21,9 @@ import java.util.List;
 public class ProductService {
     private final ProductRepository productRepository;
 
-    public List<Product> listProducts(String title) {
-        if (title != null) return productRepository.findByTitle(title);
-        return productRepository.findAll();
+    public Page<Product> listProducts(String title, Pageable pageable) {
+        if (title != null) return productRepository.findByTitle(title, pageable);
+        return productRepository.findAll(pageable);
     }
 
     public void saveProduct(
@@ -67,6 +67,10 @@ public class ProductService {
         image.setBytes(file1.getBytes());
 
         return image;
+    }
+
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
     }
 
     public Page<Product> getProduct(int page, int pageSize) {

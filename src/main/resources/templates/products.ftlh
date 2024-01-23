@@ -19,8 +19,7 @@
         </ul>
 
         <div class="col-md-3 text-end">
-            <a href="/login-user" class="btn btn-outline-primary me-2">Войти</a>
-            <#--            <button type="button" class="btn btn-primary">Sign-up</button>-->
+<#--            <a href="/login-user" class="btn btn-outline-primary me-2">Войти</a>-->
         </div>
     </header>
 </div>

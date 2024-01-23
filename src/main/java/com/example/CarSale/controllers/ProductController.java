@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -30,14 +31,16 @@ public class ProductController {
             Model model
     ) {
         int pageSize = 6;
+//        List<Product> products = productService.getAllProducts();
         Page<Product> productPage = productService.getProduct(page, pageSize);
 
         model.addAttribute("products", productPage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", productPage.getTotalPages());
+
 //        if (pageNumber == null) pageNumber = 0;
 //        model.addAttribute("products", productRepository.findAll(PageRequest.of(pageNumber, 6)));
-        model.addAttribute("products", productService.listProducts(title));
+        model.addAttribute("products", productService.listProducts(title, PageRequest.of(page, 6)).getContent());
         return "products";
     }
 
