@@ -63,20 +63,20 @@
             </div>
             <nav aria-label="Page navigation example" style="display: flex; justify-content: center; margin-top: 20px">
                 <ul class="pagination">
-                    <li class="page-item<#if currentPage == 1> disabled"</#if>>
+                    <li <#if currentPage == 1>class="page-item disabled"<#else>class="page-item"</#if>>
                         <a class="page-link" style="user-select: none; cursor: pointer"
                            href="/?page=${currentPage - 1}"><</a>
                     </li>
-                    <li class="page-item<#if currentPage == 1> disabled"</#if>>
+                    <li <#if currentPage == 1>class="page-item disabled"<#else>class="page-item"</#if>>
                         <a class="page-link" href="/?page=1">1</a>
                     </li>
-                    <li class="page-item">
+                    <li <#if currentPage == 2>class="page-item disabled"<#else>class="page-item"</#if>>
                         <a class="page-link" href="/?page=2">2</a>
                     </li>
-                    <li class="page-item">
+                    <li <#if currentPage == 3>class="page-item disabled"<#else>class="page-item"</#if>>
                         <a class="page-link" href="/?page=3">3</a>
                     </li>
-                    <li class="page-item">
+                    <li <#if currentPage == totalPages>class="page-item disabled"<#else>class="page-item"</#if>>
                         <a class="page-link" href="/?page=${currentPage+ 1}">></a>
                     </li>
                 </ul>
